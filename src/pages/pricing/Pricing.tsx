@@ -15,12 +15,12 @@ const navigation = [
 const links = [
   {
     name: 'LinkedIn',
-    href: '#',
+    href: 'https://www.linkedin.com/in/gudeta-imana-2708a111b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     icon: Linkedin,
   },
   {
     name: 'Gmail',
-    href: '#',
+    href: 'mailto:universeclinic2023@gmail.com',
     icon: Mail,
   },
   {
@@ -33,17 +33,17 @@ const links = [
 const pricingPlans = [
   {
     name: 'Basic Plan',
-    price: '$100/month',
+    price: 'Ethiopian Birr',
     features: ['Access to primary care services', 'Routine check-ups', 'Basic laboratory tests', '24/7 telehealth support'],
   },
   {
     name: 'Standard Plan',
-    price: '$200/month',
+    price: 'Ethiopian Birr',
     features: ['All Basic Plan features', 'Specialist consultations', 'Advanced laboratory tests', 'Health education programs'],
   },
   {
     name: 'Premium Plan',
-    price: '$300/month',
+    price: 'Ethiopian Birr',
     features: [
       'All Standard Plan features',
       'Comprehensive wellness assessments',
@@ -85,7 +85,7 @@ export default function PricingPage() {
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <Link to="/login">
-              <Button variant="default" loading={false}>
+              <Button variant="default" loading={false} style={{ backgroundColor: 'rgb(8, 24, 94)' }}>
                 Sign In <span aria-hidden="true"></span>
               </Button>
             </Link>
@@ -136,14 +136,22 @@ export default function PricingPage() {
         <div className="relative pt-14">
           <div className="py-10 sm:py-10">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-              <div className="mx-auto max-w-2xl text-center">
-                <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">Affordable Healthcare Plans</h1>
+              <div className="mx-auto max-w-6xl text-center">
+                <div className="relative pt-6 text-white py-6 rounded-lg" style={{ backgroundColor: 'rgb(8, 24, 94)' }}>
+                  <div className="text-center">
+                    <h1 className="text-5xl font-bold">Affordable Healthcare Plans</h1>
+                  </div>
+                </div>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
                   At Universe Internal Medicine Specialty Clinic, we believe in transparent pricing to make healthcare accessible to all.
                   Explore our plans and find the right fit for your health needs.
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
-                  <Link to="/about" className="rounded-md bg-primary px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm">
+                  <Link
+                    to="/about"
+                    className="rounded-md px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm"
+                    style={{ backgroundColor: 'rgb(8, 24, 94)' }}
+                  >
                     Learn more about us
                   </Link>
                 </div>
@@ -174,12 +182,14 @@ export default function PricingPage() {
                         <li key={index}>{feature}</li>
                       ))}
                     </ul>
-                    <Link
-                      to="/signup"
-                      className="mt-4 inline-block rounded-md bg-primary px-4 py-2 text-base font-semibold leading-7 text-white"
+                    <br />
+                    <a
+                      href="mailto:universeclinic2023@gmail.com"
+                      className="mt-4 inline-block rounded-md px-4 py-2 text-base font-semibold leading-7 text-white"
+                      style={{ backgroundColor: 'rgb(8, 24, 94)' }}
                     >
                       Get Started
-                    </Link>
+                    </a>
                   </div>
                 ))}
               </div>
@@ -188,7 +198,7 @@ export default function PricingPage() {
         </div>
 
         {/* Footer section */}
-        <footer className="bg-primary text-white">
+        <footer className="text-white" style={{ backgroundColor: 'rgb(8, 24, 94)' }}>
           <div className="container mx-auto py-10 px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row justify-between items-center">
               <div className="mb-4 lg:mb-0">

@@ -93,7 +93,7 @@ const Login = () => {
                   Password
                 </label>
                 <div className="text-sm">
-                  <a href="#" className="font-semibold text-primary hover:text-primary/90">
+                  <a href="#" className="font-semibold hover:text-primary/90" style={{ color: 'rgb(8, 24, 94)' }}>
                     Forgot password?
                   </a>
                 </div>
@@ -113,7 +113,7 @@ const Login = () => {
             </div>
 
             <div>
-              <Button type="submit" variant="default" className="!w-full">
+              <Button type="submit" variant="default" className="!w-full" style={{ backgroundColor: 'rgb(8, 24, 94)' }}>
                 Sign in
               </Button>
             </div>

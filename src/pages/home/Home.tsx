@@ -29,12 +29,12 @@ const navigation = [
 const links = [
   {
     name: 'LinkedIn',
-    href: '#',
+    href: 'https://www.linkedin.com/in/gudeta-imana-2708a111b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     icon: Linkedin,
   },
   {
     name: 'Gmail',
-    href: '#',
+    href: 'mailto:universeclinic2023@gmail.com',
     icon: Mail,
   },
   {
@@ -144,7 +144,7 @@ export default function HospitalManagementLanding() {
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <Link to="/login">
-              <Button variant="default" loading={false}>
+              <Button variant="default" loading={false} style={{ backgroundColor: 'rgb(8, 24, 94)' }}>
                 Sign In <span aria-hidden="true"></span>
               </Button>
             </Link>
@@ -202,10 +202,27 @@ export default function HospitalManagementLanding() {
               }}
             />
           </div>
+          <div className="slider w-full h-screen md:h-[70vh] sm:h-[50vh] flex items-center justify-center relative">
+            <div className="w-full h-full relative flex flex-col items-center justify-center pl-3 mt-10 pr-3">
+              <img
+                src="../asset/Images/img-5.jpeg"
+                alt="Universe Clinic image"
+                className="image w-full h-full object-cover rounded-2xl shadow-lg border border-gray-200"
+              />
+              <div className="content absolute bottom-4 left-4 bg-black bg-opacity-60 text-white p-4 md:p-6 rounded-lg max-w-[90%] md:max-w-[70%]">
+                <hr className="mb-4 border-gray-500" />
+              </div>
+            </div>
+          </div>
           <div className="py-10 sm:py-10">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-6xl text-center">
-                <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">Your Trusted Partner in Healthcare</h1>
+                <div className="relative pt-6 text-white py-6 rounded-lg" style={{ backgroundColor: 'rgb(8, 24, 94)' }}>
+                  <div className="text-center">
+                    <h1 className="text-5xl font-bold">Your Trusted Partner in Healthcare</h1>
+                  </div>
+                </div>
+
                 <p className="mt-6 text-lg leading-8 text-gray-600">
                   At <strong>Universe Internal Medicine Specialty Clinic</strong>, we bridge the gap between patients and providers,
                   offering a comprehensive range of healthcare services designed to simplify your healthcare experience. We empower you with
@@ -218,10 +235,14 @@ export default function HospitalManagementLanding() {
                   professionals.
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
-                  <a href="/about" className="rounded-md bg-primary px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm">
+                  <a
+                    href="/about"
+                    className="rounded-md px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm"
+                    style={{ backgroundColor: 'rgb(8, 24, 94)' }}
+                  >
                     Learn more
                   </a>
-                  <a href="/services" className="text-base font-semibold leading-7 text-primary">
+                  <a href="/services" className="text-base font-semibold leading-7" style={{ color: 'rgb(8, 24, 94)' }}>
                     Our services <span aria-hidden="true">→</span>
                   </a>
                 </div>
@@ -260,7 +281,7 @@ export default function HospitalManagementLanding() {
         </div>
 
         {/* Footer section */}
-        <footer className="bg-primary text-white">
+        <footer className="text-white" style={{ backgroundColor: 'rgb(8, 24, 94)' }}>
           <div className="container mx-auto py-10 px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row justify-between items-center">
               <div className="mb-4 lg:mb-0">

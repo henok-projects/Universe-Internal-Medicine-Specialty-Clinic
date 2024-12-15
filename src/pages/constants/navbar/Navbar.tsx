@@ -40,7 +40,7 @@ const Navbar: React.FC<{}> = () => {
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="/login">
-            <Button variant="default">
+            <Button variant="default" style={{ backgroundColor: 'rgb(8, 24, 94)' }}>
               Sign Up <span aria-hidden="true"></span>
             </Button>
           </a>

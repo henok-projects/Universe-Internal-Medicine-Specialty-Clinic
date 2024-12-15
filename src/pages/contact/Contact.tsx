@@ -1,5 +1,5 @@
-import { Mail, MapPin, Phone } from 'lucide-react';
-import React from 'react';
+import { CheckCircle, Mail, MapPin, Phone } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '../../components/ui/button';
 import Navbar from '../constants/navbar/Navbar';
 import { Ambulance, Check, ClipboardPlus, Cross, Hospital, Languages, Linkedin, Menu, Siren, SquareGanttChart, X } from 'lucide-react';
@@ -7,12 +7,12 @@ import { Ambulance, Check, ClipboardPlus, Cross, Hospital, Languages, Linkedin, 
 const links = [
   {
     name: 'LinkedIn',
-    href: '#',
+    href: 'https://www.linkedin.com/in/gudeta-imana-2708a111b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     icon: Linkedin,
   },
   {
     name: 'Gmail',
-    href: '#',
+    href: 'mailto:universeclinic2023@gmail.com',
     icon: Mail,
   },
   {
@@ -23,6 +23,68 @@ const links = [
 ];
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: '',
+  });
+
+  const [status, setStatus] = useState(null);
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+    console.log(`Name: ${name}, Value: ${value}`);
+    // Map `first-name` to `firstName` and `last-name` to `lastName`
+    const fieldName = name === 'first-name' ? 'firstName' : name === 'last-name' ? 'lastName' : name;
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [fieldName]: value,
+    }));
+  };
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    // Show success message optimistically
+    setStatus('success'); // Display success message immediately
+    try {
+      // const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch('https://universe-internal-medicine-specialty-clinic-backend-72kgbsdx6.vercel.app/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (!response.ok) {
+        setStatus('error'); // Update to error if the response fails
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus('error'); // Handle network errors
+    }
+
+    // Reset the form fields
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: '',
+    });
+  };
+
+  useEffect(() => {
+    if (status) {
+      const timeout = setTimeout(() => {
+        setStatus(null); // Reset status after 20 seconds
+      }, 20000);
+
+      return () => clearTimeout(timeout); // Cleanup timeout
+    }
+  }, [status]);
+
   return (
     <div className="bg-white ">
       <Navbar />
@@ -32,7 +94,7 @@ export default function Contact() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 shadow-sm">
             {/* Contact information */}
-            <div className="relative overflow-hidden bg-primary px-6 py-10 sm:px-10 xl:p-12">
+            <div className="relative overflow-hidden px-6 py-10 sm:px-10 xl:p-12" style={{ backgroundColor: 'rgb(8, 24, 94)' }}>
               <div className="pointer-events-none absolute inset-0 sm:hidden" aria-hidden="true">
                 <svg
                   className="absolute inset-0 h-full w-full"
@@ -95,14 +157,14 @@ export default function Contact() {
                 </dt>
                 <dd className="flex text-base text-indigo-50">
                   <Phone className="h-6 w-6 flex-shrink-0 text-indigo-200" aria-hidden="true" />
-                  <span className="ml-3">0944750808/0116390354</span>
+                  <span className="ml-3">0116390354</span>
                 </dd>
                 <dt>
                   <span className="sr-only">Email</span>
                 </dt>
                 <dd className="flex text-base text-indigo-50">
                   <Mail className="h-6 w-6 flex-shrink-0 text-indigo-200" aria-hidden="true" />
-                  <span className="ml-3">univ.intmedispec2022@gmail.com</span>
+                  <span className="ml-3">universeclinic2023@gmail.com </span>
                 </dd>
               </dl>
               <ul role="list" className="mt-8 flex space-x-12">
@@ -112,6 +174,7 @@ export default function Contact() {
                     href="https://web.facebook.com/p/Universe-Internal-Medicine-Specialty-Clinic-100085633663763/?_rdc=1&_rdr#"
                     target="_blank"
                     rel="noopener noreferrer"
+                    title="Follow us on Facebook"
                   >
                     <span className="sr-only">Facebook</span>
                     <svg className="h-6 w-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
@@ -124,7 +187,13 @@ export default function Contact() {
                   </a>
                 </li>
                 <li>
-                  <a className="text-indigo-200 hover:text-indigo-100" href="#">
+                  <a
+                    className="text-indigo-200 hover:text-indigo-100"
+                    href="https://www.linkedin.com/in/gudeta-imana-2708a111b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Follow us on LinkedIn"
+                  >
                     <span className="sr-only">LinkedIn</span>
                     <svg className="h-6 w-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
                       <path
@@ -136,12 +205,20 @@ export default function Contact() {
                   </a>
                 </li>
                 <li>
-                  <a className="text-indigo-200 hover:text-indigo-100" href="#">
-                    <span className="sr-only">X</span>
-                    <svg className="h-6 w-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M11.4678 8.77491L17.2961 2H15.915L10.8543 7.88256L6.81232 2H2.15039L8.26263 10.8955L2.15039 18H3.53159L8.87581 11.7878L13.1444 18H17.8063L11.4675 8.77491H11.4678ZM9.57608 10.9738L8.95678 10.0881L4.02925 3.03974H6.15068L10.1273 8.72795L10.7466 9.61374L15.9156 17.0075H13.7942L9.57608 10.9742V10.9738Z" />
-                    </svg>
-                  </a>
+                  <li>
+                    <a
+                      className="text-indigo-200 hover:text-indigo-100"
+                      href="https://www.tiktok.com/@universe.clinic"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Follow us on TikTok"
+                    >
+                      <span className="sr-only">TikTok</span>
+                      <svg className="h-6 w-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0C5.372 0 0 5.373 0 12c0 6.628 5.372 12 12 12s12-5.372 12-12c0-6.627-5.372-12-12-12zm6.075 9.75a3.456 3.456 0 01-2.812-1.451c.002 3.597.003 4.164.003 4.164s-.784-.098-1.492-.352v-4.875c-.358-.038-.718-.104-1.076-.19v6.612c0 .048-.01.093-.014.14a3.734 3.734 0 01-3.734-3.734 3.716 3.716 0 01.216-1.204v2.784a1.56 1.56 0 00-1.013-.372c-.862 0-1.561.7-1.561 1.561 0 .862.7 1.56 1.561 1.56a1.561 1.561 0 001.45-1.005 2.88 2.88 0 001.704.556c.062 0 .122-.005.183-.007a4.87 4.87 0 004.202-2.38c.816-1.404.814-3.06.813-3.258.623.425 1.387.662 2.219.662v-1.965h-.003z" />
+                      </svg>
+                    </a>
+                  </li>
                 </li>
               </ul>
             </div>
@@ -149,7 +226,7 @@ export default function Contact() {
             {/* Contact form */}
             <div className="px-6 py-10 sm:px-10 lg:col-span-2 xl:p-12">
               <h3 className="text-lg font-medium text-gray-900">Send us a message</h3>
-              <form action="#" method="POST" className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+              <form onSubmit={handleSubmit} className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
                 <div>
                   <label htmlFor="first-name" className="block text-sm font-medium text-gray-900">
                     First name
@@ -157,9 +234,13 @@ export default function Contact() {
                   <div className="mt-1">
                     <input
                       type="text"
-                      name="first-name"
+                      name="firstName"
                       id="first-name"
+                      placeholder="First Name"
                       autoComplete="given-name"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      required
                       className="block w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 shadow-sm focus:border-primary focus:ring-primary"
                     />
                   </div>
@@ -171,8 +252,12 @@ export default function Contact() {
                   <div className="mt-1">
                     <input
                       type="text"
-                      name="last-name"
+                      name="lastName"
                       id="last-name"
+                      placeholder="Last Name"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      required
                       autoComplete="family-name"
                       className="block w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     />
@@ -187,6 +272,10 @@ export default function Contact() {
                       id="email"
                       name="email"
                       type="email"
+                      placeholder="Email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
                       autoComplete="email"
                       className="block w-full border rounded-md border-gray-300 px-4 py-3 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     />
@@ -206,6 +295,9 @@ export default function Contact() {
                       type="text"
                       name="phone"
                       id="phone"
+                      placeholder="Phone (Optional)"
+                      value={formData.phone}
+                      onChange={handleChange}
                       autoComplete="tel"
                       className="block w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                       aria-describedby="phone-optional"
@@ -221,6 +313,10 @@ export default function Contact() {
                       type="text"
                       name="subject"
                       id="subject"
+                      placeholder="Subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      required
                       className="block w-full border rounded-md border-gray-300 px-4 py-3 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     />
                   </div>
@@ -239,6 +335,10 @@ export default function Contact() {
                       id="message"
                       name="message"
                       rows={4}
+                      placeholder="Message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
                       className="block w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                       aria-describedby="message-max"
                       defaultValue={''}
@@ -246,15 +346,33 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="sm:col-span-2 sm:flex sm:justify-end">
-                  <Button variant="default">Submit</Button>
+                  <Button variant="default" style={{ backgroundColor: 'rgb(8, 24, 94)' }}>
+                    Submit
+                  </Button>
+                  {status && <p>{status}</p>}
                 </div>
               </form>
+              {/* Success Message */}
+              {status === 'success' && (
+                <div className="mt-6 flex items-center bg-green-100 border border-green-300 text-green-800 rounded-md p-4">
+                  <CheckCircle className="h-6 w-6 flex-shrink-0 mr-2" aria-hidden="true" />
+                  <p>Your message has been sent successfully!</p>
+                </div>
+              )}
+
+              {/* Error Message */}
+              {status === 'error' && (
+                <div className="mt-6 flex items-center bg-red-100 border border-red-300 text-red-800 rounded-md p-4">
+                  <CheckCircle className="h-6 w-6 flex-shrink-0 mr-2 text-red-500" aria-hidden="true" />
+                  <p>Something went wrong. Please try again.</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
       {/* Footer section */}
-      <footer className="bg-primary text-white">
+      <footer className="text-white" style={{ backgroundColor: 'rgb(8, 24, 94)' }}>
         <div className="container mx-auto py-10 px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row justify-between items-center">
             <div className="mb-4 lg:mb-0">

@@ -29,12 +29,12 @@ const navigation = [
 const links = [
   {
     name: 'LinkedIn',
-    href: '#',
+    href: 'https://www.linkedin.com/in/gudeta-imana-2708a111b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     icon: Linkedin,
   },
   {
     name: 'Gmail',
-    href: '#',
+    href: 'mailto:universeclinic2023@gmail.com',
     icon: Mail,
   },
   {
@@ -109,7 +109,7 @@ export default function ServicesPage() {
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <Link to="/login">
-              <Button variant="default" loading={false}>
+              <Button variant="default" loading={false} style={{ backgroundColor: 'rgb(8, 24, 94)' }}>
                 Sign In <span aria-hidden="true"></span>
               </Button>
             </Link>
@@ -160,17 +160,25 @@ export default function ServicesPage() {
         <div className="relative pt-14">
           <div className="py-10 sm:py-10">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-              <div className="mx-auto max-w-2xl text-center">
-                <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">Comprehensive Healthcare Services</h1>
+              <div className="mx-auto max-w-6xl text-center">
+                <div className="relative pt-6 text-white py-6 rounded-lg" style={{ backgroundColor: 'rgb(8, 24, 94)' }}>
+                  <div className="text-center">
+                    <h1 className="text-5xl font-bold">Comprehensive Healthcare Services</h1>
+                  </div>
+                </div>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
                   At Universe Internal Medicine Specialty Clinic, we are dedicated to providing a wide range of services that prioritize
                   your health and well-being.
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
-                  <a href="/about" className="rounded-md bg-primary px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm">
+                  <a
+                    href="/about"
+                    className="rounded-md px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm"
+                    style={{ backgroundColor: 'rgb(8, 24, 94)' }}
+                  >
                     Learn more
                   </a>
-                  <a href="/contact" className="text-base font-semibold leading-7 text-primary">
+                  <a href="/contact" className="text-base font-semibold leading-7" style={{ color: 'rgb(8, 24, 94)' }}>
                     Contact us <span aria-hidden="true">→</span>
                   </a>
                 </div>
@@ -206,7 +214,7 @@ export default function ServicesPage() {
         </div>
 
         {/* Footer section */}
-        <footer className="bg-primary text-white">
+        <footer className="text-white" style={{ backgroundColor: 'rgb(8, 24, 94)' }}>
           <div className="container mx-auto py-10 px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row justify-between items-center">
               <div className="mb-4 lg:mb-0">

@@ -68,12 +68,12 @@ const values = [
 const links = [
   {
     name: 'LinkedIn',
-    href: '#',
+    href: 'https://www.linkedin.com/in/gudeta-imana-2708a111b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     icon: Linkedin,
   },
   {
     name: 'Gmail',
-    href: '#',
+    href: 'mailto:universeclinic2023@gmail.com',
     icon: Mail,
   },
   {
@@ -159,7 +159,7 @@ export default function About() {
                   <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                     <div className="relative">
                       <img
-                        src="/asset/Images/universe-6.jpeg"
+                        src="/asset/Images/img-1.jpeg"
                         alt=""
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
@@ -169,7 +169,7 @@ export default function About() {
                   <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
                     <div className="relative">
                       <img
-                        src="/asset/Images/universe-2.jpeg"
+                        src="/asset/Images/img-2.jpeg"
                         alt=""
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
@@ -177,7 +177,7 @@ export default function About() {
                     </div>
                     <div className="relative">
                       <img
-                        src="/asset/Images/universe-3.jpeg"
+                        src="/asset/Images/img-3.jpeg"
                         alt=""
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
@@ -187,7 +187,7 @@ export default function About() {
                   <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                     <div className="relative">
                       <img
-                        src="/asset/Images/universe-4.jpeg"
+                        src="/asset/Images/img-4.jpeg"
                         alt=""
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
@@ -195,7 +195,7 @@ export default function About() {
                     </div>
                     <div className="relative">
                       <img
-                        src="/asset/Images/universe-5.jpeg"
+                        src="/asset/Images/img-5.jpeg"
                         alt=""
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
@@ -261,7 +261,7 @@ export default function About() {
           </dl>
         </div>
         {/* Footer section */}
-        <footer className="bg-primary text-white">
+        <footer className="text-white" style={{ backgroundColor: 'rgb(8, 24, 94)' }}>
           <div className="container mx-auto py-10 px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row justify-between items-center">
               <div className="mb-4 lg:mb-0">
