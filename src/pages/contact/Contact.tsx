@@ -51,7 +51,7 @@ export default function Contact() {
     setStatus('success'); // Display success message immediately
     try {
       // const response = await fetch('http://localhost:5000/api/contact', {
-      const response = await fetch('https://universe-internal-medicine-specialty-clinic-backend-72kgbsdx6.vercel.app/api/contact', {
+      const response = await fetch('universe-internal-medicine-specialty-clinic-backend-8bqtm7m41.vercel.app/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
