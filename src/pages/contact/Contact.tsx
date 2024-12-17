@@ -7,13 +7,8 @@ import { Ambulance, Check, ClipboardPlus, Cross, Hospital, Languages, Linkedin, 
 const links = [
   {
     name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/gudeta-imana-2708a111b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+    href: 'https://www.linkedin.com/in/universe-clinic-0bba26341?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     icon: Linkedin,
-  },
-  {
-    name: 'Gmail',
-    href: 'mailto:universeclinic2023@gmail.com',
-    icon: Mail,
   },
   {
     name: 'Google map location',
@@ -189,7 +184,7 @@ export default function Contact() {
                 <li>
                   <a
                     className="text-indigo-200 hover:text-indigo-100"
-                    href="https://www.linkedin.com/in/gudeta-imana-2708a111b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    href="https://www.linkedin.com/in/universe-clinic-0bba26341?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Follow us on LinkedIn"
@@ -393,6 +388,9 @@ export default function Contact() {
                   <link.icon className="h-6 w-6" aria-hidden="true" />
                 </a>
               ))}
+              <a href="mailto:universeclinic2023@gmail.com" className="text-white hover:text-gray-300">
+                <Mail className="h-6 w-6" aria-hidden="true" />
+              </a>
             </div>
           </div>
           <div className="mt-4 text-center">
