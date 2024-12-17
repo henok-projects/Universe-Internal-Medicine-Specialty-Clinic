@@ -46,7 +46,7 @@ export default function Contact() {
     setStatus('success'); // Display success message immediately
     try {
       // const response = await fetch('http://localhost:5000/api/contact', {
-      const response = await fetch('https://universe-internal-medicine-specialty-9px1.onrender.com/api/contact', {
+      const response = await fetch('https://universe-internal-medicine-specialty.onrender.com/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
